@@ -29,6 +29,7 @@ namespace Hreby1
                 greenScroll.Value = scrollPosition;
                 blueScroll.Value = scrollPosition;
             }
+            updateColor();
         }
 
         private void label2_Click(object sender, EventArgs e){ }
