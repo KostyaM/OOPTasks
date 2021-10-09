@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Hreby1
 {
     partial class Form1
@@ -29,21 +31,72 @@ namespace Hreby1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddDish = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrderDish = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveDish = new System.Windows.Forms.ToolStripMenuItem();
+            this.RenameDish = new System.Windows.Forms.ToolStripMenuItem();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.orderButton = new System.Windows.Forms.Button();
+            this.SortAZ = new System.Windows.Forms.ToolStripMenuItem();
+            this.SortZA = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.ContextMenuStrip = this.ContextMenu;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(12, 13);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(229, 418);
             this.checkedListBox1.TabIndex = 0;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // ContextMenu
+            // 
+            this.ContextMenu.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddDish,
+            this.OrderDish,
+            this.RemoveDish,
+            this.RenameDish,
+            this.SortAZ,
+            this.SortZA});
+            this.ContextMenu.Name = "ContextMenu";
+            this.ContextMenu.Size = new System.Drawing.Size(144, 136);
+            this.ContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.СontexMenu_ItemClicked);
+            // 
+            // AddDish
+            // 
+            this.AddDish.Name = "AddDish";
+            this.AddDish.Size = new System.Drawing.Size(143, 22);
+            this.AddDish.Text = "AddDish";
+            // 
+            // OrderDish
+            // 
+            this.OrderDish.Enabled = false;
+            this.OrderDish.Name = "OrderDish";
+            this.OrderDish.Size = new System.Drawing.Size(143, 22);
+            this.OrderDish.Text = "OrderDish";
+            // 
+            // RemoveDish
+            // 
+            this.RemoveDish.Enabled = false;
+            this.RemoveDish.Name = "RemoveDish";
+            this.RemoveDish.Size = new System.Drawing.Size(143, 22);
+            this.RemoveDish.Text = "Remove Dish";
+            // 
+            // RenameDish
+            // 
+            this.RenameDish.Enabled = false;
+            this.RenameDish.Name = "RenameDish";
+            this.RenameDish.Size = new System.Drawing.Size(143, 22);
+            this.RenameDish.Text = "Rename Dish";
             // 
             // checkedListBox2
             // 
@@ -88,6 +141,18 @@ namespace Hreby1
             this.orderButton.UseVisualStyleBackColor = true;
             this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
+            // SortAZ
+            // 
+            this.SortAZ.Name = "SortAZ";
+            this.SortAZ.Size = new System.Drawing.Size(143, 22);
+            this.SortAZ.Text = "Sort A-Z";
+            // 
+            // SortZA
+            // 
+            this.SortZA.Name = "SortZA";
+            this.SortZA.Size = new System.Drawing.Size(143, 22);
+            this.SortZA.Text = "Sort Z-A";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -100,6 +165,7 @@ namespace Hreby1
             this.Controls.Add(this.checkedListBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.ContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -111,6 +177,13 @@ namespace Hreby1
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button orderButton;
+        private System.Windows.Forms.ContextMenuStrip ContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem AddDish;
+        private System.Windows.Forms.ToolStripMenuItem OrderDish;
+        private System.Windows.Forms.ToolStripMenuItem RemoveDish;
+        private System.Windows.Forms.ToolStripMenuItem RenameDish;
+        private ToolStripMenuItem SortAZ;
+        private ToolStripMenuItem SortZA;
     }
 }
 
