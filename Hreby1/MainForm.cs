@@ -21,7 +21,7 @@ namespace Hreby1
         private int orderListIndex = -1;
         private int menuListIndex = -1;
 
-        private string cuisineResourcesDir = Directory.GetCurrentDirectory()+"\\..\\cuisine";
+        private string cuisineResourcesDir = Directory.GetCurrentDirectory()+"\\..\\..\\..\\cuisine";
         private string cuisineFile;
 
 
@@ -155,7 +155,7 @@ namespace Hreby1
 
         private String exportOrder(double totalPrice)
         {
-            var path = Directory.GetCurrentDirectory() + "\\..\\output\\order" + DateTime.Now.ToString("MM-dd-yyyy__HH-mm") + ".txt";
+            var path = Directory.GetCurrentDirectory() + "\\..\\..\\..\\output\\order" + DateTime.Now.ToString("MM-dd-yyyy__HH-mm") + ".txt";
             StreamWriter f = new StreamWriter(path, false);
             f.WriteLine(cuisineLabel.Text + " Cuisine");
             foreach (OrderItem item in orderItems)
