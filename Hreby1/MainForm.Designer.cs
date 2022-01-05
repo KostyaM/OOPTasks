@@ -38,22 +38,29 @@ namespace Hreby1
             this.OrderDish = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveDish = new System.Windows.Forms.ToolStripMenuItem();
             this.RenameDish = new System.Windows.Forms.ToolStripMenuItem();
+            this.SortAZ = new System.Windows.Forms.ToolStripMenuItem();
+            this.SortZA = new System.Windows.Forms.ToolStripMenuItem();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.orderButton = new System.Windows.Forms.Button();
-            this.SortAZ = new System.Windows.Forms.ToolStripMenuItem();
-            this.SortZA = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FileItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CuisineItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.cuisineLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ContextMenu.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.ContextMenuStrip = this.ContextMenu;
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 13);
+            this.checkedListBox1.Location = new System.Drawing.Point(12, 31);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(229, 418);
+            this.checkedListBox1.Size = new System.Drawing.Size(229, 382);
             this.checkedListBox1.TabIndex = 0;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
@@ -98,12 +105,24 @@ namespace Hreby1
             this.RenameDish.Size = new System.Drawing.Size(143, 22);
             this.RenameDish.Text = "Rename Dish";
             // 
+            // SortAZ
+            // 
+            this.SortAZ.Name = "SortAZ";
+            this.SortAZ.Size = new System.Drawing.Size(143, 22);
+            this.SortAZ.Text = "Sort A-Z";
+            // 
+            // SortZA
+            // 
+            this.SortZA.Name = "SortZA";
+            this.SortZA.Size = new System.Drawing.Size(143, 22);
+            this.SortZA.Text = "Sort Z-A";
+            // 
             // checkedListBox2
             // 
             this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(559, 13);
+            this.checkedListBox2.Location = new System.Drawing.Point(559, 31);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(229, 418);
+            this.checkedListBox2.Size = new System.Drawing.Size(229, 382);
             this.checkedListBox2.TabIndex = 1;
             this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
             // 
@@ -141,32 +160,70 @@ namespace Hreby1
             this.orderButton.UseVisualStyleBackColor = true;
             this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
-            // SortAZ
+            // menuStrip1
             // 
-            this.SortAZ.Name = "SortAZ";
-            this.SortAZ.Size = new System.Drawing.Size(143, 22);
-            this.SortAZ.Text = "Sort A-Z";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileItem,
+            this.CuisineItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // SortZA
+            // FileItem
             // 
-            this.SortZA.Name = "SortZA";
-            this.SortZA.Size = new System.Drawing.Size(143, 22);
-            this.SortZA.Text = "Sort Z-A";
+            this.FileItem.Enabled = false;
+            this.FileItem.Name = "FileItem";
+            this.FileItem.Size = new System.Drawing.Size(37, 20);
+            this.FileItem.Text = "File";
+            // 
+            // CuisineItem
+            // 
+            this.CuisineItem.Name = "CuisineItem";
+            this.CuisineItem.Size = new System.Drawing.Size(58, 20);
+            this.CuisineItem.Text = "Cuisine";
+            this.CuisineItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CuisineItem_DropDownItemClicked);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cuisineLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Stretch = false;
+            this.statusStrip1.TabIndex = 6;
+            // 
+            // cuisineLabel
+            // 
+            this.cuisineLabel.Name = "cuisineLabel";
+            this.cuisineLabel.Size = new System.Drawing.Size(109, 17);
+            this.cuisineLabel.Text = "No cuisine selected";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.orderButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.checkedListBox2);
             this.Controls.Add(this.checkedListBox1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ContextMenu.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -184,6 +241,11 @@ namespace Hreby1
         private System.Windows.Forms.ToolStripMenuItem RenameDish;
         private ToolStripMenuItem SortAZ;
         private ToolStripMenuItem SortZA;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem FileItem;
+        private ToolStripMenuItem CuisineItem;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel cuisineLabel;
     }
 }
 

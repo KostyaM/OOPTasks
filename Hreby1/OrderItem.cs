@@ -36,6 +36,11 @@ namespace Hreby1
             return productItem.GetName() + " (" + count + ")" + "\t $" + GetPrice();
         }
 
+        public int GetCount()
+        {
+            return count;
+        }
+
         public override bool Equals(object obj)
         {
             return obj is OrderItem item &&
