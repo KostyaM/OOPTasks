@@ -1,7 +1,7 @@
 ﻿
 namespace Hreby1
 {
-    partial class Form1
+    partial class GeneralForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,41 +30,64 @@ namespace Hreby1
         private void InitializeComponent()
         {
             System.Windows.Forms.ToolStripMenuItem Black;
-            this.picCanvas = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FileItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tools = new System.Windows.Forms.ToolStripMenuItem();
             this.fromCenter = new System.Windows.Forms.ToolStripMenuItem();
             this.squares = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolbarColor = new System.Windows.Forms.ToolStripMenuItem();
             this.Red = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.saveAs = new System.Windows.Forms.ToolStripMenuItem();
             Black = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // picCanvas
+            // Black
             // 
-            this.picCanvas.BackColor = System.Drawing.SystemColors.Window;
-            this.picCanvas.Location = new System.Drawing.Point(-1, 26);
-            this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(803, 425);
-            this.picCanvas.TabIndex = 0;
-            this.picCanvas.TabStop = false;
-            this.picCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseMove);
-            this.picCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseClick);
+            Black.Name = "Black";
+            Black.Size = new System.Drawing.Size(67, 22);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileItem,
             this.Tools,
-            this.ToolbarColor});
+            this.ToolbarColor,
+            this.windowItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FileItem
+            // 
+            this.FileItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newItem,
+            this.openItem,
+            this.saveAs});
+            this.FileItem.Name = "FileItem";
+            this.FileItem.Size = new System.Drawing.Size(37, 20);
+            this.FileItem.Text = "File";
+            // 
+            // newItem
+            // 
+            this.newItem.Name = "newItem";
+            this.newItem.Size = new System.Drawing.Size(114, 22);
+            this.newItem.Text = "New";
+            this.newItem.Click += new System.EventHandler(this.newFileClick);
+            // 
+            // openItem
+            // 
+            this.openItem.Name = "openItem";
+            this.openItem.Size = new System.Drawing.Size(114, 22);
+            this.openItem.Text = "Open";
+            this.openItem.Click += new System.EventHandler(this.openFileClick);
             // 
             // Tools
             // 
@@ -101,17 +124,33 @@ namespace Hreby1
             this.ToolbarColor.Text = "Color";
             this.ToolbarColor.Click += new System.EventHandler(this.menuStrip1_ColorClicked);
             // 
-            // Form1
+            // Red
+            // 
+            this.Red.Name = "Red";
+            this.Red.Size = new System.Drawing.Size(67, 22);
+            // 
+            // windowItem
+            // 
+            this.windowItem.Name = "windowItem";
+            this.windowItem.Size = new System.Drawing.Size(63, 20);
+            this.windowItem.Text = "Window";
+            // 
+            // saveAs
+            // 
+            this.saveAs.Name = "saveAs";
+            this.saveAs.Size = new System.Drawing.Size(114, 22);
+            this.saveAs.Text = "Save As";
+            this.saveAs.Click += new System.EventHandler(this.saveFileClick);
+            // 
+            // GeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "GeneralForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -130,6 +169,11 @@ namespace Hreby1
         private System.Windows.Forms.ToolStripMenuItem Red;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.ToolStripMenuItem FileItem;
+        private System.Windows.Forms.ToolStripMenuItem windowItem;
+        private System.Windows.Forms.ToolStripMenuItem newItem;
+        private System.Windows.Forms.ToolStripMenuItem openItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAs;
     }
 }
 

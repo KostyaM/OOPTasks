@@ -5,51 +5,46 @@ using System.Windows.Forms;
 namespace Hreby1
 {
 
-    enum Tool{
+    public enum Tool{
         CenterLine,
         Squares
     }
-    public partial class Form1 : Form
+    public partial class GeneralForm : Form
     {
-        Bitmap drawingArea;
-        Pen pen;
-        Graphics graphics;
-
-        Tool currentTool = Tool.CenterLine;
-        Color currentColor = Color.Black;
-        public Form1()
+ 
+        public Pen pen;
+        public Tool currentTool = Tool.CenterLine;
+        public Color currentColor = Color.Black;
+        public GeneralForm()
         {
             InitializeComponent();
             pen = new Pen(Color.Black, 1);
-            drawingArea = new Bitmap(picCanvas.Width, picCanvas.Height);
-            graphics = Graphics.FromImage(drawingArea);
-
+            IsMdiContainer = true;
         }
 
-        private void picCanvas_MouseMove(object sender, MouseEventArgs e)
+        private void newFileClick(object? sender, EventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-                return;
-            switch (currentTool) 
-            {
-                case Tool.CenterLine:
-                    graphics.DrawLine(pen, e.X, e.Y, picCanvas.Width / 2, picCanvas.Height / 2);
-                    break;
-                case Tool.Squares:
-                    graphics.DrawRectangle(pen, new Rectangle(e.X + 5, e.Y + 5, 10, 10));
-                    break;
-
-            }
-            picCanvas.Image = drawingArea;
+           new Document(this, new Bitmap(1920, 1080)).Show();
         }
 
-        private void picCanvas_MouseClick(object sender, MouseEventArgs e)
+        private void openFileClick(object? sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                graphics.Clear(Color.Transparent);
-                picCanvas.Image = drawingArea;
-            }
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.ShowDialog();
+            Image pic = Image.FromFile(openFileDialog1.FileName);
+            float k = 1;
+            if (pic.Width >= pic.Height && pic.Width > 1920) k = 1920f / pic.Width;
+            else if (pic.Width < pic.Height && pic.Height > 1080) k = 1080 / pic.Height;
+            new Document(this, new Bitmap(pic, (int)(pic.Width * k), (int)(pic.Height * k))).Show();
+        }
+
+        private void saveFileClick(object? sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.ShowDialog();
+            Document drawing = (Document)ActiveMdiChild;
+            drawing.drawingArea.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+            ActiveMdiChild.Text = saveFileDialog1.FileName;
         }
 
         private void menuStrip1_FromCenterClicked(object? sender, EventArgs e)
